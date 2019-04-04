@@ -29,6 +29,7 @@ public class ASS2 extends Application {
             public void handle(ActionEvent event) {
                 System.out.println("Hello Worldddd! can you see this?");
                 System.out.println("Hey I can see it!");
+                 System.out.println("Hey I can see it YAY I THINK IT WORKS !");
             }
         });
         
