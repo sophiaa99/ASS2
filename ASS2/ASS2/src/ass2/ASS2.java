@@ -28,6 +28,7 @@ public class ASS2 extends Application {
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("Hello Worldddd! can you see this?");
+                System.out.println("Hey I can see it!");
             }
         });
         
