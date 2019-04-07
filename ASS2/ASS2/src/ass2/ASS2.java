@@ -3,44 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ass2;
+package ASS2;
 
+
+import java.sql.SQLException;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import static javafx.application.Application.launch;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
  *
- * @author SOPHIA
+ * @author jacob
  */
-public class ASS2 extends Application {
+public class LoginScreen extends Application {
     
     @Override
-    public void start(Stage primaryStage) {
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello Worldddd! can you see this?");
-                System.out.println("Hey I can see it!");
-                 System.out.println("Hey I can see it YAY I THINK IT WORKS !");
-            }
-        });
+    public void start(Stage stage) throws Exception {
+        loadDatabase();
+        Parent root = FXMLLoader.load(getClass().getResource("LoginScreen.fxml"));
         
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
+        Scene scene = new Scene(root);
         
-        Scene scene = new Scene(root, 300, 250);
-        
-        primaryStage.setTitle("Hello World!");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        stage.setScene(scene);
+        stage.show();
     }
 
     /**
@@ -48,6 +36,16 @@ public class ASS2 extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+    }
+
+   
+    
+    private void loadDatabase() throws SQLException {
+       Database.createUserTable();
+       Database.createFoodTable();
+       Database.createGoalsTable();
+       Database.createWeightTable();
+       Database.createGymTable();
     }
     
 }
